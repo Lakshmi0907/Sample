@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+	char a1[100][100],a[100];
+	int row,col,i,n,len1,j=0,check=0;
+	gets(a);
+	scanf("%d",&n);
+	len1=strlen(a);
+	row=n;
+	col=len1;
+	for(i=0;i<row;i++)
+	for(j=0;j<col;j++)
+	a1[i][j]=0;
+	j=0;
+	for(i=0;i<len1;i++){
+		if(j==0||j==n-1){
+			if(check==0)
+			check=1;
+			else
+			check=0;
+		}
+		a1[j][i]=a[i];
+		if(check)
+		j++;
+		else
+		j--;
+	}
+	
+	for(i=0;i<row;i++){
+		for(j=0;j<col;j++){
+			if(a1[i][j]!=0)
+			printf("%c",a1[i][j]);
+		}
+		printf("\n");
+	}
+}
